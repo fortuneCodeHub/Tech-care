@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech.Care || Your go to for medical check up</title>
+
+    <!-- 
+        Please examiner in order to load this page so that it'll be beautiful please you need good internet connection because it is using external cdn links to load bootstrap
+     -->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+<body style="background-color: #F6F7F8;">
+    
+    <div class="main-div">
+        <div id="container">
+            <div class="no-internet d-none">
+                <img src="assets/images/no-internet.gif" alt="no-internet-icon">
+                <span>OOOPS, seems your internet connection is poor,</span>
+                <span>please reload the page</span>
+            </div>
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-xl my-2 pe-3">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/TestLogo.svg" alt="Tech.care-logo" class="ms-3">
+                </a>
+                <span class="navbar-toggler me-3" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- <span class="navbar-toggler-icon"></span> -->
+                    <i class="bi bi-list fw-bold tg-btn-icon"></i>
+                </span>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav mx-auto" id="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" id="nav-link">
+                                <img src="assets/images/home_FILL0_wght300_GRAD0_opsz24.svg" alt="home-icon" class="me-2 nav-svg">
+                                <span>Overview</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" id="nav-link-main">
+                                <img src="assets/images/group_FILL0_wght300_GRAD0_opsz24.svg" alt="group-icon" class="me-2 nav-svg">
+                                <span>Patients</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" id="nav-link">
+                                <img src="assets/images/calendar_today_FILL0_wght300_GRAD0_opsz24.svg" alt="calendar-icon" class="me-2 nav-svg">
+                                <span>Schedule</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" id="nav-link">
+                                <img src="assets/images/chat_bubble_FILL0_wght300_GRAD0_opsz24.svg" alt="chat-bubble-icon" class="me-2 nav-svg">
+                                <span>Message</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#" id="nav-link">
+                                <img src="assets/images/credit_card_FILL0_wght300_GRAD0_opsz24.svg" alt="credit-card-icon" class="me-2 nav-svg">
+                                <span>Transactions</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="user-func ms-auto">
+                        <div class="user-info">
+                            <img src="assets/images/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png" alt="senior-doctor" class="me-2">
+                            <div class="d-flex flex-column">
+                                <span class="fw-bold darkest-blue-color">Dr. Jose Simmons</span>
+                                <span class="low-font dark-gray-color">General Practitioner</span>
+                            </div>
+                        </div>
+                        <div class="user-settings-icons">
+                            <img src="assets/images/settings_FILL0_wght300_GRAD0_opsz24.svg" alt="settings-icon" class="user-settings-svg">
+                            <img src="assets/images/more_vert_FILL0_wght300_GRAD0_opsz24.svg" alt="more-vert-icon" class="user-settings-svg">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="main-content-section">
+                <div class="row g-4">
+                    <div class="col-lg-3 col-12 py-lg-4 py-2 px-2 patients-name-area-bg">
+                        <div class="patients-name-area">
+                            <div class="header">
+                                <h1>Patients</h1>
+                                <div>
+                                    <button class="btn" id="more-patients-btn">
+                                        <img src="assets/images/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" class="d-lg-none d-inline-block me-2" alt="more-icon">
+                                    </button>
+                                    <img src="assets/images/search_FILL0_wght300_GRAD0_opsz24.svg" alt="search-icon">
+                                </div>
+                            </div>
+                            <div class="my-lg-2 py-lg-2 py-1 my-1">
+                                <div class="loader">
+                                    <img src="assets/images/color-loader.gif" alt="loader-icon">
+                                </div>
+                                <ul class="list-unstyled patients-cta-cover d-none collapser" id="patients-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-7 col-12 py-lg-4 px-2 patient-diagnostic-area-bg">
+                        <div class="patient-diagnostic-area">
+                            <div class="row g-4">
+                                <div class="col-12 diagnostic-history-area">
+                                    <div class="header">
+                                        <h1>Diagnostic History</h1>
+                                    </div>
+                                    <div class="diag-history-loader">
+                                        <img src="assets/images/color-loader.gif" alt="loader-icon">
+                                    </div>
+                                </div>
+                                <div class="col-12 diagnostic-list-area">
+                                    <div class="header">
+                                        <h1>Diagnostic List</h1>
+                                    </div>
+                                    <div class="diagnostic-list-table mt-2 mb-4 mx-1">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Problem/Diagnosis</th>
+                                                    <th>Description</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="diagnostic-table">
+                                                <div class="diag-list-loader">
+                                                    <img src="assets/images/color-loader.gif" alt="loader-icon">
+                                                </div>
+                                                <!-- <tr>
+                                                    <td>Hypertension</td>
+                                                    <td>Chronic high blood pressure</td>
+                                                    <td>Under Observation</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Under Observation</td>
+                                                    <td>Insulin resistance and elevated blood sugar</td>
+                                                    <td>Cured</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Asthma</td>
+                                                    <td>Recurrent episodes of bronchial constriction</td>
+                                                    <td>Inactive</td>
+                                                </tr> -->
+                                                <!-- Add more rows as needed -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-12 pt-lg-3 py-lg-1 pb-2 px-2">
+                        <div class="patients-info-area">
+                            <div class="row g-4">
+                                <div class="col-12 patient-main-data-bg">
+                                    <div class="patient-main-loader">
+                                        <img src="assets/images/color-loader.gif" alt="loader-icon">
+                                    </div>
+                                        <!-- <div class="text-center patient-first-data">
+                                            <img src="assets/images/Layer 2@2x.png" class="patient-data-img" alt="">
+                                            <h3 class="head-text">Jessica Taylor</h3>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li class="ps-2 py-1 my-2">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="assets/images/BirthIcon.svg" alt="" class="me-3">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="low-font dark-gray-color">Date of Birth</span>
+                                                        <span class="fw-bold darkest-blue-color">August 23, 1996</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="ps-2 py-1 my-2">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="assets/images/FemaleIcon.svg" alt="" class="me-3">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="low-font dark-gray-color">Gender</span>
+                                                        <span class="fw-bold darkest-blue-color">Female</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="ps-2 py-1 my-2">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="assets/images/PhoneIcon.svg" alt="" class="me-3">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="low-font dark-gray-color">Contact Info</span>
+                                                        <span class="fw-bold darkest-blue-color">(415) 555-1234</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="ps-2 py-1 my-2">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="assets/images/PhoneIcon.svg" alt="" class="me-3">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="low-font dark-gray-color">Emergency Contacts</span>
+                                                        <span class="fw-bold darkest-blue-color">(415) 555-5678</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="ps-2 py-1 my-2">
+                                                <div class="d-flex align-items-center">
+                                                    <img src="assets/images/InsuranceIcon.svg" alt="" class="me-3">
+                                                    <div class="d-flex flex-column">
+                                                        <span class="low-font dark-gray-color">Insurance Provider</span>
+                                                        <span class="fw-bold darkest-blue-color">Sunrise Health Assurance</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul> -->
+
+                                </div>
+                                <div class="col-12 patient-lab-result-bg">
+                                    <div class="header">
+                                        <h1>Lab Results</h1>
+                                    </div>
+                                    <div class="lab-results-bg mt-2">
+                                        <ul class="list-unstyled lab-results-main-bg">
+                                            <div class="patient-result-loader">
+                                                <img src="assets/images/color-loader.gif" alt="loader-icon">
+                                            </div>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Chart js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JS -->
+    <script src="js/app.js"></script>
+    <!-- Bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const username = 'coalition'
+            const password = 'skills-test'
+            const auth = btoa(`${username}:${password}`)
+            const loader = document.querySelector('.loader');
+            const diagHistoryLoader = document.querySelector('.diag-history-loader')
+            const diagListLoader = document.querySelector('.diag-list-loader')
+            const patMainLoader = document.querySelector('.patient-main-loader')
+            const patResultLoader = document.querySelector('.patient-result-loader')
+            const container = document.querySelector('.patients-cta-cover')
+            const noInternet = document.querySelector('.no-internet')
+            
+            // Fetch FED API data
+            fetch('https://fedskillstest.coalitiontechnologies.workers.dev', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Basic ${auth}`
+                }
+            }).then(function (response) {
+                if (response.ok) {
+                    return response.json()
+                }
+                throw response
+            }).then(function (data) {
+                // console.log(data)
+
+                // Set the data to the DOM
+                displayAllPatients(data)
+                displayOnePatient(data)
+            }).catch(function (error) {
+                console.warn(error)
+                
+                noInternet.classList.remove('d-none')
+            }).finally(function () {
+                // Display container
+                container.classList.remove('d-none')
+                
+                // Hide the loader
+                loader.classList.add('d-none')
+                diagHistoryLoader.classList.add('d-none')
+                diagListLoader.classList.add('d-none')
+                patMainLoader.classList.add('d-none')
+                patResultLoader.classList.add('d-none')
+            });
+            
+            //  Convert date
+            function formatDate(dateString) {
+                // Create a new Date object from the input date string
+                const date = new Date(dateString);
+
+                // Define options for formatting the date
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+                // Use toLocaleDateString to format the date according to the specified options
+                return date.toLocaleDateString('en-US', options);
+            }
+
+            // Func to all the patients
+            function displayAllPatients(data) {
+                data.forEach(item => {
+                    const itemCont = document.createElement('li')
+                    itemCont.className = 'patients-cta-bg'
+                    
+                    itemCont.innerHTML = `
+                        <a href="" class="patients-cta-link">
+                            <img src="${item.profile_picture}" alt="patient-image" class="me-2" id="patient-pic">
+                            <div class="info-combo">
+                                <div class="d-flex flex-column">
+                                    <span class="fw-bold darkest-blue-color">${item.name}</span>
+                                    <span class="low-font dark-gray-color">${item.gender}, ${item.age}</span>
+                                    </div>
+                                <div class="more-icon">
+                                    <img src="assets/images/more_horiz_FILL0_wght300_GRAD0_opsz24.svg" alt="more-icon">
+                                </div>
+                            </div>
+                        </a>
+                        `
+
+                    // Append the div to the container
+                    container.appendChild(itemCont)
+                })
+
+            }
+
+            // Display Jessica Taylor's Data
+            function displayOnePatient(data) {
+                // Data to populate the UI
+                const diagnosisHistoryData = data[3].diagnosis_history[0]
+                const diagnosisListData = data[3].diagnostic_list
+                const patientMainData = data[3]
+                const patientResultData = data[3].lab_results
+
+                // Chart data
+                var systolicValue = []
+                var diastolicValue = []
+                var systolicLevels = []
+                var diastolicLevels = []
+                var labels = []
+                for (let d = 13 - 1; d >= 0; d--) {
+                    const a = 12 - d
+                    // Set values
+                    systolicValue[a] = data[3].diagnosis_history[d].blood_pressure.systolic.value
+                    diastolicValue[a] = data[3].diagnosis_history[d].blood_pressure.diastolic.value
+
+                    // Set levels
+                    systolicLevels[a] = data[3].diagnosis_history[d].blood_pressure.systolic.systolicLevels
+                    diastolicLevels[a] = data[3].diagnosis_history[d].blood_pressure.diastolic.diastolicLevels
+
+                    // Get month and year
+                    labels[a] = `${data[3].diagnosis_history[d].month.slice(0,3)} ${data[3].diagnosis_history[d].year}`
+
+                }
+                
+                const diagnosticHistory = document.querySelector('.diagnostic-history-area')
+                const diagnosticList = document.querySelector('.diagnostic-table')
+                const diagnosticPatientMain = document.querySelector('.patient-main-data-bg')
+                const patientResult = document.querySelector('.lab-results-main-bg')
+            
+                // Chart content
+                const diagnosticChartCont = document.createElement('div')
+                diagnosticChartCont.className = 'diagnostic-history-chart-area mt-2 mb-4 mx-1 row g-4'
+
+                // Other diagnostic history Content
+                const diagnosticOther = document.createElement('div')
+                diagnosticOther.className = 'diagnostic-history-more-area row g-4 mb-2 mx-1'
+                
+                // Patients main data content
+                const diagnosticPatientMainCont = document.createElement('div')
+
+                // Display diagnostic graph
+                diagnosticChartCont.innerHTML = `
+                    <div class="diagnostic-history-chart-bg col-md-8 col-12">
+                        <div class="diagnostic-history-chart">
+                            <div class="chart-head">
+                                <h3>Blood Pressure</h3>
+                                <select class="form-select form-select-sm" aria-label="Small select example" id="timeRange">
+                                    <option value="3">Last 3months</option
+                                    <option value="4">Last 4months</option>
+                                    <option value="6" selected>Last 6months</option>
+                                    <option value="12">Last 12months</option>
+                                </select>
+                            </div>
+                            <div class="chart pt-3">
+                                <canvas id="myChart" style="width:100%;height:40vh;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="diagnostic-history-indi col-md-4 col-12">
+                        <div class="text-start mb-1 mb-md-2 pt-1 pb-md-2 pb-1 bottom-border">
+                            <h4 class="d-flex align-items-center">
+                                <div class="pink-dot me-2"></div>
+                                Systolic
+                            </h4>
+                            <h3>${diagnosisHistoryData.blood_pressure.systolic.value}</h3>
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/ArrowUp.svg" class="me-2" alt="arrow-up-icon">
+                                <span>${diagnosisHistoryData.blood_pressure.systolic.levels}</span>
+                            </div>
+                        </div>
+                        <div class="text-start mb-1 py-1">
+                            <h4 class="d-flex align-items-center">
+                                <div class="purple-dot me-2"></div>
+                                Diastolic
+                            </h4>
+                            <h3>${diagnosisHistoryData.blood_pressure.diastolic.value}</h3>
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/ArrowDown.svg" class="me-2" alt="arrow-down-icon">
+                                <span>${diagnosisHistoryData.blood_pressure.diastolic.levels}</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+                
+                // Display diagnostic other
+                diagnosticOther.innerHTML = `
+                    <div class="diagnostic-history-more-bg col-xl-4 col-sm-6 col-12 text-sm-start text-center">
+                        <div class="resp-bg">
+                            <div class="py-2">
+                                <img src="assets/images/respiratory rate.svg" alt="respiratory-icon">
+                            </div>
+                            <div class="mt-1">
+                                <h4>Respiratory Rate</h4>
+                                <h3 class="mb-3">${diagnosisHistoryData.respiratory_rate.value} bpm</h3>
+                                <small>${diagnosisHistoryData.respiratory_rate.levels}</small>
+                            </div>
+                            </div>
+                    </div>
+                    <div class="diagnostic-history-more-bg col-xl-4 col-sm-6 col-12 text-sm-start text-center">
+                        <div class="temp-bg">
+                            <div class="py-2">
+                                <img src="assets/images/temperature.svg" alt="temperature-icon">
+                            </div>
+                            <div class="mt-1">
+                                <h4>Temperature</h4>
+                                <h3 class="mb-3">${diagnosisHistoryData.temperature.value}°F</h3>
+                                <small>${diagnosisHistoryData.temperature.levels}</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="diagnostic-history-more-bg col-xl-4 col-sm-6 col-12 text-sm-start text-center">
+                        <div class="heart-bg">
+                            <div class="py-2">
+                                <img src="assets/images/HeartBPM.svg" alt="heart-bpm-rate-icon">
+                            </div>
+                            <div class="mt-1">
+                                <h4>Heart Rate</h4>
+                                <h3 class="mb-3">${diagnosisHistoryData.heart_rate.value} bpm</h3>
+                                <small>
+                                    <img src="assets/images/ArrowDown.svg" class="me-2" alt="arrow-down-icon">
+                                    ${diagnosisHistoryData.heart_rate.levels}
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                `
+
+                // Display diagnostic table list
+                for (let i = 0; i < diagnosisListData.length; i++) {
+                    // Diagnostic list area Content
+                    const diagnosticListCont = document.createElement('tr')
+
+                    diagnosticListCont.innerHTML = `
+                        <td>${diagnosisListData[i].name}</td>
+                        <td>${diagnosisListData[i].description}</td>
+                        <td>${diagnosisListData[i].status}</td>
+                    `
+    
+                    diagnosticList.appendChild(diagnosticListCont)
+                }
+                
+                // change the date format
+                const originalDate = patientMainData.date_of_birth;
+                const formattedDate = formatDate(originalDate);
+                // Display patients main data
+                diagnosticPatientMainCont.innerHTML = `
+                    <div class="text-center patient-first-data">
+                        <img src="${patientMainData.profile_picture}" class="patient-data-img" alt="profile-pic">
+                        <h3 class="head-text">${patientMainData.name}</h3>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li class="ps-2 py-1 my-2">
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/BirthIcon.svg" alt="birth-icon" class="me-3">
+                                <div class="d-flex flex-column">
+                                    <span class="low-font dark-gray-color">Date of Birth</span>
+                                    <span class="fw-bold darkest-blue-color">${formattedDate}</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="ps-2 py-1 my-2">
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/FemaleIcon.svg" alt="female-icon" class="me-3">
+                                <div class="d-flex flex-column">
+                                    <span class="low-font dark-gray-color">Gender</span>
+                                    <span class="fw-bold darkest-blue-color">${patientMainData.gender}</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="ps-2 py-1 my-2">
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/PhoneIcon.svg" alt="phone-icon" class="me-3">
+                                <div class="d-flex flex-column">
+                                    <span class="low-font dark-gray-color">Contact Info</span>
+                                    <span class="fw-bold darkest-blue-color">${patientMainData.phone_number}</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="ps-2 py-1 my-2">
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/PhoneIcon.svg" alt="phone-icon" class="me-3">
+                                <div class="d-flex flex-column">
+                                    <span class="low-font dark-gray-color">Emergency Contacts</span>
+                                    <span class="fw-bold darkest-blue-color">${patientMainData.emergency_contact}</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="ps-2 py-1 my-2">
+                            <div class="d-flex align-items-center">
+                                <img src="assets/images/InsuranceIcon.svg" alt="insurance-icon" class="me-3">
+                                <div class="d-flex flex-column">
+                                    <span class="low-font dark-gray-color">Insurance Provider</span>
+                                    <span class="fw-bold darkest-blue-color">${patientMainData.insurance_type}</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="py-2 px-1 text-center">
+                        <button class="btn">
+                            Show All Information
+                        </button>
+                    </div>
+                `
+        
+                // Display patients results
+                for (let b = 0; b < patientResultData.length; b++) {
+                    // Patients results
+                    const patientResultDataCont = document.createElement('li')
+                    patientResultDataCont.className = 'px-2 py-3 my-2 me-2'
+
+                    patientResultDataCont.innerHTML = `
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex flex-column">
+                                <span>${patientResultData[b]}</span>
+                            </div>
+                            <img src="assets/images/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="download-icon">
+                        </div>
+                    `
+
+                    patientResult.appendChild(patientResultDataCont)
+                }
+               
+                
+                // Append the div to the container
+                diagnosticHistory.appendChild(diagnosticChartCont)
+                diagnosticHistory.appendChild(diagnosticOther)
+                diagnosticPatientMain.appendChild(diagnosticPatientMainCont)
+
+                const fullData = {
+                    labels: labels,
+                    dataset1: diastolicValue,
+                    dataset2: systolicValue
+                };
+
+                // Initialize the Chart
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const myChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: fullData.labels.slice(-6),
+                        datasets: [
+                            {
+                                label: 'Systolic',
+                                data: fullData.dataset1.slice(-6),
+                                borderColor: '#C26EB4',
+                                backgroundColor: 'rgba(0, 0, 0, 0)',
+                                pointBackgroundColor: '#E66FD2',
+                                pointBorderColor: '#E66FD2',
+                                pointRadius: 5,
+                                tension: 0.4, 
+                                fill: false
+                            },
+                            {
+                                label: 'Diastolic',
+                                data: fullData.dataset2.slice(-6),
+                                borderColor: '#7E6CAB',
+                                backgroundColor: 'rgba(0, 0, 0, 0)', 
+                                pointBackgroundColor: '#8C6FE6',
+                                pointBorderColor: '#8C6FE6',
+                                pointRadius: 5,
+                                tension: 0.4, 
+                                fill: false
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    font: {
+                                        family: "'Monospace', sans-serif", 
+                                    }
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    font: {
+                                        family: "'Monospace', sans-serif", 
+                                    }
+                                },
+                                grid: {
+                                    display: false // Remove horizontal grid lines
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false // Remove the legend
+                            },
+                            // title: {
+                            //     display: true,
+                            //     text: 'Blood Pressure Over the Last 6 Months',
+                            //     font: {
+                            //         family: "'Monospace', sans-serif", // Font for chart title
+                            //         size: 18
+                            //     }
+                            // }
+                        },
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        tooltips: {
+                            enabled: true,
+                            bodyFont: {
+                                family: "'Monospace', sans-serif" 
+                            }
+                        }
+                    }
+                })
+
+                // Function to update chart based on selected months
+                function updateChart(months) {
+                    myChart.data.labels = fullData.labels.slice(-months);
+                    myChart.data.datasets[0].data = fullData.dataset1.slice(-months);
+                    myChart.data.datasets[1].data = fullData.dataset2.slice(-months);
+                    myChart.update();
+                }
+
+                // Event listener for the dropdown to change the chart data
+                document.getElementById('timeRange').addEventListener('change', function() {
+                    const months = parseInt(this.value);
+                    updateChart(months);
+                });
+                
+            }
+            
+            
+        })
+    </script>
+
+</body>
+</html>
